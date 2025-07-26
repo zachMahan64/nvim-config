@@ -1,4 +1,3 @@
-print "Loaded custom.configs.lspconfig, these may need to be manually installed with Mason"
 local base = require "custom.configs.base" -- changed here
 local on_attach = base.on_attach
 local capabilities = base.capabilities
