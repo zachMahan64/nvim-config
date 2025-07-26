@@ -6,8 +6,8 @@
 local M = {}
 
 M.base46 = {
-    theme = "carbonfox",
-    theme_toggle = { "carbonfox", "catppuccin", "tokyonight", "tokyodark" },
+    theme = "catppuccin",
+    theme_toggle = { "catppuccin", "catppuccin", "tokyonight", "tokyodark" },
 }
 M.ui = {
     cmp = {
@@ -41,38 +41,28 @@ M.ui = {
 }
 M.nvdash = {
     load_on_startup = true,
-    header = {
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⣤⣤⣤⠀⠀⢦⣤⡤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ",
-"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡆⠀⢸⡟⣿⣷⣄⠀⣿⠀⠀⣠⣤⢤⣤⡀⠀⣠⣤⠤⣤⣄⠀⠀",
-"⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⡇⠀⢸⡇⠈⢻⣿⣦⣿⠀⢸⣿⡧⠤⠿⠷⢸⣿⡇⠀⢹⣿⡆⠀",
-"⠘⢿⣿⣿⠒⠤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠋⠻⡇⢀⣸⣧⣀⠀⠙⢿⣿⠀⠘⣿⣷⣄⣠⡴⠙⣿⣧⢀⣼⡿⠁⠀",
-" ⠀⠙⢿⡤⣀⠀⠉⠢⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⡘⠀⠀⡇⠈⠀⠀⠁⠀⠀⠀⠉⠀⠀⠀⠉⠉⠁⠀⠀⠀⠉⠉⠁⠀⠀⠀",
-"⠀⠀⠀⠀⠈⠲⢕⣢⢄⠈⠱⠴⠖⠲⠤⠄⣀⠀⠀⠇⠀⢀⠇⠀⠀⠀⠀⠀⠀⠀~ NVChad ~⠀⠀⠀⠀⠀⠀⠀",
-"⠀⠀⠀⠀⠀⠀⠀⠀⠩⠃⠀⠀⠀⠀⠀⠀⠀⠉⠺⣄⢀⡼⠀⣄⣀⣀⣠⡀⢠⣀⣀⣀⣴⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-"⠀⠀⠀⠀⠀⠀⠀⢰⠃⣴⣒⡄⠀⠀⠀⠀⠀⠀⠀⠀⡿⠁⠀⠈⢻⣿⣇⠀⠀⣸⠏⢀⣙⣋⠀⣀⣀⣀⢀⣀⣀⠀⣀⣀⠀⠀",
-"⠀⠀⠀⠀⠀⠀⣠⡳⡄⠙⠋⠀⠀⠤⠀⠀⢠⣶⣄⠀⡇⠀⠀⠀⠀⢿⣿⡆⢰⠏⠀⠈⢹⣿⠀⠉⣿⣿⠉⢻⣿⡏⠙⣿⣧⠀",
-"⠀⠀⠀⠀⠀⠀⣟⣷⠃⠀⠀⣿⠿⣿⣦⡤⠘⠛⠃⢠⠁⠀⠀⠀⠀⠈⣿⣿⡟⠀⠀⠀⢸⣿⡀⠀⣿⣿⠀⢸⣿⡇⠀⣿⣿⠀",
-"⠀⠀⠀⠀⠀⠀⠘⡅⠀⠀⠀⡇⠀⢀⡟⠀⠀⢠⠖⢺⠔⠂⠉⠹⣦⠀⠘⠛⠁⠀⠀⠈⠉⠉⠉⠉⠉⠉⠁⠉⠉⠉⠈⠉⠉⠁",
-"⠀⠀⠀⢠⠖⠈⠉⠉⠑⠲⢄⡙⠑⠋⠀⠀⠀⢧⡶⠃⠀⠀⢀⡶⠧⢄⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-"⠀⠀⠀⢃⠀⠀⠀⠀⠀⠀⠀⡿⠂⠀⠀⠀⠒⠉⠀⢀⣠⣴⠋⠀⠀⠀⠀⠀⠀⠉⠉⠒⠠⢤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-"⠀⠀⠀⠈⠻⣤⠀⠤⠤⠖⠙⠁⠀⠀⠀⠀⠀⠠⢆⡵⠋⠸⢰⠈⠒⠤⡀⠀⠀⠀⠀⠀⠀⡠⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-"⠀⠀⠀⠀⢀⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢺⢁⣀⠀⡇⡄⢠⠆⠤⣌⣑⠤⡀⠀⡠⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-"⠀⠀⠀⠀⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠸⡛⢪⡀⡰⠃⠀⠀⠀⠀⠉⠙⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-"⠀⠀⠀⢰⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣦⣿⡿⠉⠁⠀⠀⠀⠀⠀⠀⠀Zach Mahan ⠀⠀⠀⠀⠀",
-"⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⠉⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-"⠀⠀⢀⣘⢦⡀⣀⣀⣀⠀⢀⣀⣄⠀⠀⠀⠒⢄⡼⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-"⠀⠀⠛⠛⠚⠂⠉⠁⠀⠀⠀⠀⠈⠉⠉⠳⠬⠏⣹⣷⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-    },
 
+    header = (function()
+        local rows = vim.o.lines
+        local cols = vim.o.columns
+
+        if cols < 100 or rows < 30 then
+            return require "custom.nvdash.small"
+        --elseif cols < 140 then
+            --return require "custom.nvdash_medium"
+        else
+            return require "custom.nvdash.large"
+        end
+    end)(),
     buttons = {
         { txt = "  Find File", keys = "ff", cmd = "Telescope find_files" },
         { txt = "  Recent Files", keys = "fo", cmd = "Telescope oldfiles" },
         { txt = "󰈭  Find Word", keys = "fw", cmd = "Telescope live_grep" },
         { txt = "󱥚  Themes", keys = "th", cmd = ":lua require('nvchad.themes').open()" },
         { txt = "  Mappings", keys = "ch", cmd = "NvCheatsheet" },
+        { txt = "󰰰 Quit", keys = "qq", cmd = ":qa!" },
 
         { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
-
         {
             txt = function()
                 local stats = require("lazy").stats()
