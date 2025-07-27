@@ -25,6 +25,22 @@ return {
                 "vimdoc",
                 "html",
                 "css",
+                "cpp",
+                "c",
+                "rust",
+                "python",
+            },
+            highlight = {
+                enable = true,
+            },
+            indent = {
+                enable = true,
+            },
+            incremental_selection = {
+                enable = true,
+            },
+            textobjects = {
+                enable = true,
             },
         },
     },
