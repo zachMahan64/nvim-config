@@ -45,11 +45,10 @@ M.nvdash = {
     header = (function()
         local rows = vim.o.lines
         local cols = vim.o.columns
-
-        if cols < 100 or rows < 30 then
+        if rows < 30 then
             return require "custom.nvdash.small"
-        --elseif cols < 140 then
-            --return require "custom.nvdash_medium"
+        elseif cols < 100 or rows < 50 then
+            return require "custom.nvdash.medium"
         else
             return require "custom.nvdash.large"
         end
