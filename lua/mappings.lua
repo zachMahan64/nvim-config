@@ -22,6 +22,6 @@ map("n", "<leader>du", require("dapui").toggle, { desc = "DAP UI Toggle" })
 map("n", "<leader>dc", require("dap").clear_breakpoints, { desc = "DAP: Clear Breakpoints" })
 
 -- Formatting
-vim.keymap.set("n", "<leader>fx", vim.lsp.buf.format, { desc = "file-spec format" })
+map("n", "<leader>fx", vim.lsp.buf.format, { desc = "file-spec format" })
 
 
