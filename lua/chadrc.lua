@@ -6,8 +6,8 @@
 local M = {}
 
 M.base46 = {
-    theme = "catppuccin",
-    theme_toggle = { "catppuccin", "catppuccin", "tokyonight", "tokyodark" },
+    theme = "tokyodark",
+    theme_toggle = { "tokyodark", "tokyodark", "tokyonight", "tokyodark" },
 }
 M.ui = {
     cmp = {

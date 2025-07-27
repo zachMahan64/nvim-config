@@ -43,7 +43,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         dependencies = { "williamboman/mason.nvim" },
         opts = {
-            ensure_installed = { "rust_analyzer", },
+            ensure_installed = { "rust_analyzer" },
             handlers = {
                 function(server_name)
                     if server_name == "clangd" then
@@ -190,5 +190,12 @@ return {
                 on_attach = require("custom.configs.base").on_attach,
             }
         end,
+    },
+    {
+        "folke/persistence.nvim",
+        event = "BufReadPre", -- this will only start session saving when an actual file was opened
+        opts = {
+            -- add any custom options here
+        },
     },
 }
