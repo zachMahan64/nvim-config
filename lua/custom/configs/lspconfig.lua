@@ -25,7 +25,6 @@ lspconfig.pyright.setup {
     python = {
       venvPath = vim.fn.getcwd(),
       venv = ".venv",
-      pythonVersion = "3.11",
     },
   },
 }

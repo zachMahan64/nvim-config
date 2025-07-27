@@ -57,9 +57,8 @@ M.nvdash = {
         { txt = "  Find File", keys = "ff", cmd = "Telescope find_files" },
         { txt = "  Recent Files", keys = "fo", cmd = "Telescope oldfiles" },
         { txt = "󰈭  Find Word", keys = "fw", cmd = "Telescope live_grep" },
-        { txt = "󱥚  Themes", keys = "th", cmd = ":lua require('nvchad.themes').open()" },
+        { txt = "  Open CWD", keys = "fo", cmd = ":!open ." },
         { txt = "  Configure", keys = "cn", cmd = "Telescope find_files cwd=~/.config/nvim" },
-        { txt = "  Mappings", keys = "ch", cmd = "NvCheatsheet" },
         { txt = "󰰰 Quit", keys = "qq", cmd = ":qa!" },
 
         { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },

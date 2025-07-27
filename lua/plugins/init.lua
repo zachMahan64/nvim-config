@@ -1,184 +1,194 @@
 return {
-  {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    opts = require "configs.conform",
-  },
-
-  -- These are some examples, uncomment them if you want to see them work!
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "configs.lspconfig"
-    end,
-  },
-
-  -- test new blink
-  { import = "nvchad.blink.lazyspec" },
-
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "vim",
-        "lua",
-        "vimdoc",
-        "html",
-        "css",
-      },
+    {
+        "stevearc/conform.nvim",
+        -- event = 'BufWritePre', -- uncomment for format on save
+        opts = require "configs.conform",
     },
-  },
-  --MAY BREAK:
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "clangd",
-        "rust_analyzer",
-        "shellcheck",
-      },
-    },
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = { "williamboman/mason.nvim" },
-    opts = {
-      ensure_installed = { "rust_analyzer", "clang-format" },
-      handlers = {
-        function(server_name)
-          if server_name == "clangd" then
-            return
-          end
-          require("lspconfig")[server_name].setup {}
+
+    -- These are some examples, uncomment them if you want to see them work!
+    {
+        "neovim/nvim-lspconfig",
+        config = function()
+            require "configs.lspconfig"
         end,
-        clangd = function() end,
-      },
     },
-  },
-  {
-    "nvim-tree/nvim-tree.lua",
-    opts = {
-      git = {
-        enable = true,
-        ignore = false,
-      },
-      filters = {
-        dotfiles = false,
-      },
-    },
-  },
-  {
-    "mfussenegger/nvim-dap",
-    dependencies = {
-      "rcarriga/nvim-dap-ui",
-      "jay-babu/mason-nvim-dap.nvim",
-      "nvim-neotest/nvim-nio",
-      "folke/which-key.nvim",
-    },
-    config = function()
-      local dap = require "dap"
-      local dapui = require "dapui"
-      local wk = require "which-key"
 
-      require("mason-nvim-dap").setup {
-        ensure_installed = { "codelldb" },
-        automatic_setup = true,
-      }
+    -- test new blink
+    { import = "nvchad.blink.lazyspec" },
 
-      -- UI setup
-      dapui.setup()
-      vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
-
-      -- Auto-open/close UI
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
-
-      -- Adapter config
-      dap.adapters.codelldb = {
-        type = "server",
-        port = "${port}",
-        executable = {
-          command = vim.fn.stdpath "data" .. "/mason/bin/codelldb",
-          args = { "--port", "${port}" },
-        },
-      }
-
-      dap.configurations.cpp = {
-        {
-          name = "Launch C++ (codelldb)",
-          type = "codelldb",
-          request = "launch",
-          program = function()
-            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-          end,
-          cwd = "${workspaceFolder}",
-          stopOnEntry = false,
-        },
-      }
-      dap.configurations.c = dap.configurations.cpp
-
-      -- Which-key descriptions only
-      wk.setup()
-    end,
-  },
-  {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-    dependencies = {
-      "neovim/nvim-lspconfig",
-      "williamboman/mason-lspconfig.nvim", -- for LSP server install
-    },
-    config = function()
-      local rt = require "rust-tools"
-      rt.setup {
-        server = {
-          on_attach = function(_, bufnr)
-            vim.keymap.set("n", "<Leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr })
-          end,
-          settings = {
-            ["rust-analyzer"] = {
-              cargo = { allFeatures = true },
-              checkOnSave = {
-                command = "clippy",
-                enable = true,
-              },
-              diagnostics = {
-                enable = true,
-                enableExperimental = true, -- optional, enables extra lints
-              },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        opts = {
+            ensure_installed = {
+                "vim",
+                "lua",
+                "vimdoc",
+                "html",
+                "css",
             },
-          },
         },
-      }
-    end,
-  },
+    },
+    --MAY BREAK:
+    {
+        "williamboman/mason.nvim",
+        opts = {
+            ensure_installed = {
+                "clangd",
+                "rust_analyzer",
+                "shellcheck",
+            },
+        },
+    },
+    {
+        "williamboman/mason-lspconfig.nvim",
+        dependencies = { "williamboman/mason.nvim" },
+        opts = {
+            ensure_installed = { "rust_analyzer", },
+            handlers = {
+                function(server_name)
+                    if server_name == "clangd" then
+                        return
+                    end
+                    require("lspconfig")[server_name].setup {}
+                end,
+                clangd = function() end,
+            },
+        },
+    },
+    {
+        "nvim-tree/nvim-tree.lua",
+        opts = {
+            git = {
+                enable = true,
+                ignore = false,
+            },
+            filters = {
+                dotfiles = false,
+            },
+        },
+    },
+    {
+        "mfussenegger/nvim-dap",
+        dependencies = {
+            "rcarriga/nvim-dap-ui",
+            "jay-babu/mason-nvim-dap.nvim",
+            "nvim-neotest/nvim-nio",
+            "folke/which-key.nvim",
+        },
+        config = function()
+            local dap = require "dap"
+            local dapui = require "dapui"
+            local wk = require "which-key"
 
-  {
-    "nvimtools/none-ls.nvim", -- the maintained fork of null-ls
-    event = "VeryLazy",
+            require("mason-nvim-dap").setup {
+                ensure_installed = { "codelldb" },
+                automatic_setup = true,
+            }
+
+            -- UI setup
+            dapui.setup()
+            vim.fn.sign_define(
+                "DapBreakpoint",
+                { text = "●", texthl = "DiagnosticSignError", linehl = "", numhl = "" }
+            )
+
+            -- Auto-open/close UI
+            dap.listeners.after.event_initialized["dapui_config"] = function()
+                dapui.open()
+            end
+            dap.listeners.before.event_terminated["dapui_config"] = function()
+                dapui.close()
+            end
+            dap.listeners.before.event_exited["dapui_config"] = function()
+                dapui.close()
+            end
+
+            -- Adapter config
+            dap.adapters.codelldb = {
+                type = "server",
+                port = "${port}",
+                executable = {
+                    command = vim.fn.stdpath "data" .. "/mason/bin/codelldb",
+                    args = { "--port", "${port}" },
+                },
+            }
+            dap.configurations.cpp = {
+                {
+                    name = "Launch C++ (codelldb)",
+                    type = "codelldb",
+                    request = "launch",
+                    program = function()
+                        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+                    end,
+                    cwd = "${workspaceFolder}",
+                    stopOnEntry = false,
+                },
+            }
+            dap.configurations.c = dap.configurations.cpp
+
+            -- Which-key descriptions only
+            wk.setup()
+        end,
+    },
+    {
+        "simrat39/rust-tools.nvim",
+        ft = "rust",
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "williamboman/mason-lspconfig.nvim", -- for LSP server install
+        },
+    },
     config = function()
-      local null_ls = require "null-ls"
+        local rt = require "rust-tools"
+        local extension_path = vim.fn.stdpath "data" .. "/mason/packages/codelldb/extension/"
+        local codelldb_path = extension_path .. "adapter/codelldb"
+        local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib" -- or .so on Linux
 
-      null_ls.setup {
-        sources = {
-          -- formatting
-          null_ls.builtins.formatting.cmake_format, -- <- cmakelang formatter
-          require("null-ls").builtins.diagnostics.cmake_lint,
-          null_ls.builtins.formatting.stylua,
-          null_ls.builtins.formatting.clang_format,
-          --null_ls.builtins.diagnostics.shellcheck,
-          --null_ls.builtins.formatting.rustfmt,
-          --null_ls.builtins.formatting.black, --for python
-        },
-        on_attach = require("custom.configs.base").on_attach,
-      }
+        rt.setup {
+            server = {
+                on_attach = function(_, bufnr)
+                    vim.keymap.set("n", "<Leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr })
+                end,
+                settings = {
+                    ["rust-analyzer"] = {
+                        cargo = { allFeatures = true },
+                        checkOnSave = {
+                            command = "clippy",
+                            enable = true,
+                        },
+                        diagnostics = {
+                            enable = true,
+                            enableExperimental = true,
+                        },
+                    },
+                },
+            },
+
+            dap = {
+                adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+            },
+        }
     end,
-  },
+
+    {
+        "nvimtools/none-ls.nvim", -- the maintained fork of null-ls
+        event = "VeryLazy",
+        config = function()
+            local null_ls = require "null-ls"
+
+            null_ls.setup {
+                sources = {
+                    -- formatting
+                    null_ls.builtins.formatting.cmake_format, -- <- cmakelang formatter
+                    require("null-ls").builtins.diagnostics.cmake_lint,
+                    null_ls.builtins.formatting.stylua,
+                    null_ls.builtins.formatting.clang_format,
+                    --null_ls.builtins.diagnostics.shellcheck,
+                    --null_ls.builtins.formatting.rustfmt,
+                    --null_ls.builtins.formatting.black, --for python
+                },
+                on_attach = require("custom.configs.base").on_attach,
+            }
+        end,
+    },
 }
