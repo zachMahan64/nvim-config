@@ -1,4 +1,4 @@
-return {
+local plugs = {
     {
         "stevearc/conform.nvim",
         -- event = 'BufWritePre', -- uncomment for format on save
@@ -224,8 +224,11 @@ return {
     },
     {
         "NotAShelf/direnv.nvim",
+        lazy = false,
         config = function()
-            require("direnv").setup {}
+            require "custom.configs.direnv"
         end,
     },
 }
+
+return plugs

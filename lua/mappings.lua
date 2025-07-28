@@ -50,3 +50,16 @@ map("n", "<leader>1", ":cd ~/dev/c | NvimTreeOpen<CR>", { desc = " C projects
 map("n", "<leader>2", ":cd ~/dev/cpp | NvimTreeOpen<CR>", { desc = " C++ projects" })
 map("n", "<leader>3", ":cd ~/dev/py/ | NvimTreeOpen<CR>", { desc = " Python projects" })
 map("n", "<leader>4", ":cd ~/dev/rust | NvimTreeOpen<CR>", { desc = " Rust projects" })
+
+-- direnv keymaps for normal mode
+map("n", "<Leader>Ya", function() require("direnv").allow_direnv() end, { desc = "Direnv: allow .envrc" })
+map("n", "<Leader>Yd", function() require("direnv").deny_direnv() end, { desc = "Direnv: deny .envrc" })
+map("n", "<Leader>Yr", function() require("direnv").check_direnv() end, { desc = "Direnv: reload/check .envrc" })
+map("n", "<Leader>Ye", function() require("direnv").edit_envrc() end, { desc = "Direnv: edit .envrc" })
+
+-- themes
+-- Remap toggle term
+
+vim.keymap.set("n", "<leader>tt", function()
+  require("base46").toggle_theme()
+end, { noremap = true, silent = true, desc = "Toggle NvChad theme via base46" })

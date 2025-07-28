@@ -5,6 +5,7 @@
 ---@type ChadrcConfig
 local M = {}
 vim.api.nvim_set_hl(0, "Invisible", { fg = "NONE", bg = "NONE" }) -- for nvdash
+vim.api.nvim_set_hl(0, "Cust", { fg = "#f1bd6a", bg = "NONE", bold = false })
 M.base46 = {
     theme = "tokyodark",
     theme_toggle = { "tokyodark", "tokyodark", "tokyonight", "tokyodark" },
@@ -48,20 +49,36 @@ M.nvdash = {
         if rows < 30 then
             return require "custom.nvdash.small"
         elseif cols < 100 or rows < 50 then
-            return require "custom.nvdash.medium"
+            return require "custom.nvdash.large"
         else
             return require "custom.nvdash.large"
         end
     end)(),
     buttons = {
-        { txt = "  Resume Previous Session", keys = "r", cmd = ":lua require('persistence').load({ last = true })" },
-        { txt = "  Open CWD", keys = "fo", cmd = ":!open ." },
-        { txt = "󰒲  Sync Plugins & Servers", keys = "um", cmd = ":Lazy sync | MasonInstallAll" },
-        { txt = "  Configure", keys = "cn", cmd = ":cd ~/.config/nvim/lua | NvimTreeOpen" },
-        { txt = "󰰰  Quit", keys = "qq", cmd = ":qa!" },
+        {
+            txt = "  Resume Previous Session",
+            keys = "r",
+            cmd = ":lua require('persistence').load({ last = true })",
+            hl = "Cust",
+        },
+        { txt = "  Open CWD", keys = "fo", cmd = ":!open .", hl = "Cust",},
+        {
+            txt = "󰒲  Sync Plugins & Servers",
+            keys = "um",
+            cmd = ":Lazy sync | MasonInstallAll",
+            hl = "Cust",
 
-        { txt = "[SPACE] +  C [1] |  C++ [2] |  Python [3] |  Rust [4]", hl = "DashboardHeader",},
-        --{ txt = "", keys = "1", hl = "Invisible", cmd = "cd ~/dev/c"},
+        },
+        {
+            txt = "  Configure",
+            keys = "cn",
+            cmd = ":cd ~/.config/nvim/lua | NvimTreeOpen",
+            hl = "Cust",
+
+        },
+        { txt = "󰰰  Quit", keys = "qq", cmd = ":qa!", hl = "Cust",},
+
+        { txt = "[SPACE] +  C [1] |  C++ [2] |  Python [3] |  Rust [4]", hl = "NvDashHeader" },
 
         { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
         {
@@ -79,6 +96,12 @@ M.nvdash = {
 }
 M.lsp = {
     override = require "custom.configs.lspconfig", -- may break
+}
+M.colorify = {
+    enabled = true,
+    mode = "virtual", -- fg, bg, virtual
+    virt_text = "󱓻 ",
+    highlight = { hex = true, lspvars = true },
 }
 M.lazy_nvim = {
     config = {
