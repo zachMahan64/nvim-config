@@ -222,4 +222,10 @@ return {
         "nvzone/minty",
         cmd = { "Shades", "Huefy" },
     },
+    {
+        "NotAShelf/direnv.nvim",
+        config = function()
+            require("direnv").setup {}
+        end,
+    },
 }
