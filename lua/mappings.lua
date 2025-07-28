@@ -66,4 +66,4 @@ end, { noremap = true, silent = true, desc = "Toggle NvChad theme via base46" })
 
 
 vim.keymap.set("n", "<F6>", ":set spell!<CR>", { noremap = true, silent = true, desc = "Toggle spell check" })
-vim.keymap.set("n", "<leader>cc", "set spell! <CR>", { noremap = true, silent = true, desc = "Toggle spell check" })
+vim.keymap.set("n", "<leader>cc", ":set spell! <CR>", { noremap = true, silent = true, desc = "Toggle spell check" })
