@@ -25,13 +25,15 @@ map("n", "<leader>dc", require("dap").clear_breakpoints, { desc = "DAP: Clear Br
 map("n", "<leader>fx", vim.lsp.buf.format, { desc = "file-spec format" })
 
 -- LSP mappings
-map("n", "<leader>r", vim.lsp.buf.rename, { desc = "LSP: Rename (prefer <leader>ra)" })
+map("n", "<leader>rr", vim.lsp.buf.rename, { desc = "LSP: Rename (prefer <leader>ra)" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code Action" })
 map("n", "gd", vim.lsp.buf.definition, { desc = "LSP: Go to Definition" })
 map("n", "gD", vim.lsp.buf.declaration, { desc = "LSP: Go to Declaration" })
 map("n", "gi", vim.lsp.buf.implementation, { desc = "LSP: Go to Implementation" })
 map("n", "K", vim.lsp.buf.hover, { desc = "LSP: Hover Doc" })
 map("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "LSP: Signature Help" })
+
+vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostics under cursor" })
 
 -- persistence mappings
 vim.keymap.set("n", "<leader>qs", function() require("persistence").load() end, { desc = "load the session for the current directory"})
@@ -41,3 +43,7 @@ vim.keymap.set("n", "<leader>qS", function() require("persistence").select() end
 vim.keymap.set("n", "<leader>ql", function() require("persistence").load({ last = true }) end, { desc = "load the last session"})
 -- stop Persistence => session won't be saved on exit
 vim.keymap.set("n", "<leader>qd", function() require("persistence").stop() end, { desc = "stop Persistence => session won't be saved on exit"})
+
+-- nvdash
+vim.keymap.set("n", "<leader>zn", ":Nvdash<CR>", { desc = "Toggle Nvdash" })
+

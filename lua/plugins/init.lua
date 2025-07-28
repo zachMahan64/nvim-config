@@ -214,4 +214,10 @@ return {
             -- add any custom options here
         },
     },
+    { "nvzone/volt", lazy = true },
+
+    {
+        "nvzone/minty",
+        cmd = { "Shades", "Huefy" },
+    },
 }
