@@ -33,17 +33,20 @@ map("n", "gi", vim.lsp.buf.implementation, { desc = "LSP: Go to Implementation" 
 map("n", "K", vim.lsp.buf.hover, { desc = "LSP: Hover Doc" })
 map("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "LSP: Signature Help" })
 
-vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostics under cursor" })
+map("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostics under cursor" })
 
 -- persistence mappings
-vim.keymap.set("n", "<leader>qs", function() require("persistence").load() end, { desc = "load the session for the current directory"})
--- select a session to load
-vim.keymap.set("n", "<leader>qS", function() require("persistence").select() end, { desc = "select a session to load"})
--- load the last session
-vim.keymap.set("n", "<leader>ql", function() require("persistence").load({ last = true }) end, { desc = "load the last session"})
--- stop Persistence => session won't be saved on exit
-vim.keymap.set("n", "<leader>qd", function() require("persistence").stop() end, { desc = "stop Persistence => session won't be saved on exit"})
+map("n", "<leader>qs", function() require("persistence").load() end, { desc = "load the session for the current directory"})
+map("n", "<leader>qS", function() require("persistence").select() end, { desc = "select a session to load"})
+map("n", "<leader>ql", function() require("persistence").load({ last = true }) end, { desc = "load the last session"})
+map("n", "<leader>qd", function() require("persistence").stop() end, { desc = "stop Persistence => session won't be saved on exit"})
 
--- nvdash
-vim.keymap.set("n", "<leader>zn", ":Nvdash<CR>", { desc = "Toggle Nvdash" })
+-- misc
+map("n", "<leader>zn", ":Nvdash<CR>", { desc = "Toggle Nvdash" })
+map("n", "<leader>zq", ":Telescope find_files cwd=~/.config/nvim/lua<CR>", {desc = "  Quick Fix"})
 
+--true shortcuts
+map("n", "<leader>1", ":cd ~/dev/c | NvimTreeOpen<CR>", { desc = " C projects" })
+map("n", "<leader>2", ":cd ~/dev/cpp | NvimTreeOpen<CR>", { desc = " C++ projects" })
+map("n", "<leader>3", ":cd ~/dev/py/ | NvimTreeOpen<CR>", { desc = " Python projects" })
+map("n", "<leader>4", ":cd ~/dev/rust | NvimTreeOpen<CR>", { desc = " Rust projects" })

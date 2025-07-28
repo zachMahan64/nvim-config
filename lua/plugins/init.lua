@@ -82,6 +82,7 @@ return {
                 dotfiles = false,
             },
         },
+        lazy = false,
     },
     {
         "mfussenegger/nvim-dap",

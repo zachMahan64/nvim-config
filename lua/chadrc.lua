@@ -4,7 +4,7 @@
 
 ---@type ChadrcConfig
 local M = {}
-
+vim.api.nvim_set_hl(0, "Invisible", { fg = "NONE", bg = "NONE" }) -- for nvdash
 M.base46 = {
     theme = "tokyodark",
     theme_toggle = { "tokyodark", "tokyodark", "tokyonight", "tokyodark" },
@@ -54,13 +54,14 @@ M.nvdash = {
         end
     end)(),
     buttons = {
-        { txt = "  Find File", keys = "ff", cmd = "Telescope find_files" },
-        { txt = "  Recent Files", keys = "fo", cmd = "Telescope oldfiles" },
-        { txt = "󰈭  Find Word", keys = "fw", cmd = "Telescope live_grep" },
+        { txt = "  Resume Previous Session", keys = "r", cmd = ":lua require('persistence').load({ last = true })" },
         { txt = "  Open CWD", keys = "fo", cmd = ":!open ." },
-        { txt = "  Quick Fix", keys = "cn", cmd = "Telescope find_files cwd=~/.config/nvim" },
-        { txt = "  Configure", keys = "cn", cmd = ":cd ~/.config/nvim" },
-        { txt = "󰰰 Quit", keys = "qq", cmd = ":qa!" },
+        { txt = "󰒲  Sync Plugins & LSP's", keys = "um", cmd = ":Lazy sync | MasonInstallAll" },
+        { txt = "  Configure", keys = "cn", cmd = ":cd ~/.config/nvim/lua | NvimTreeOpen" },
+        { txt = "󰰰  Quit", keys = "qq", cmd = ":qa!" },
+
+        { txt = "[SPACE] +  C [1] |  C++ [2] |  Python [3] |  Rust [4]", hl = "DashboardHeader",},
+        --{ txt = "", keys = "1", hl = "Invisible", cmd = "cd ~/dev/c"},
 
         { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
         {
@@ -76,7 +77,6 @@ M.nvdash = {
         { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
     },
 }
-M.plugs = "custom.plugins"
 M.lsp = {
     override = require "custom.configs.lspconfig", -- may break
 }

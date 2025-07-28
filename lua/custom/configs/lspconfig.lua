@@ -14,6 +14,7 @@ local servers = {
     "rust_analyzer",
     "neocmake",
     "black",
+    "arduino_language_server"
     --"asm_lsp", --good, but doesn't work w/ b16 so disable it for now
 }
 vim.lsp.enable(servers)
