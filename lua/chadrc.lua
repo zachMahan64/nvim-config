@@ -56,7 +56,7 @@ M.nvdash = {
     buttons = {
         { txt = "  Resume Previous Session", keys = "r", cmd = ":lua require('persistence').load({ last = true })" },
         { txt = "  Open CWD", keys = "fo", cmd = ":!open ." },
-        { txt = "󰒲  Sync Plugins & LSP's", keys = "um", cmd = ":Lazy sync | MasonInstallAll" },
+        { txt = "󰒲  Sync Plugins & Servers", keys = "um", cmd = ":Lazy sync | MasonInstallAll" },
         { txt = "  Configure", keys = "cn", cmd = ":cd ~/.config/nvim/lua | NvimTreeOpen" },
         { txt = "󰰰  Quit", keys = "qq", cmd = ":qa!" },
 
