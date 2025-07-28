@@ -5,7 +5,7 @@
 ---@type ChadrcConfig
 local M = {}
 vim.api.nvim_set_hl(0, "Invisible", { fg = "NONE", bg = "NONE" }) -- for nvdash
-vim.api.nvim_set_hl(0, "Cust", { fg = "#f1bd6a", bg = "NONE", bold = false })
+vim.api.nvim_set_hl(0, "Cust", { fg = "#fcdc9f", bg = "NONE", bold = false })
 M.base46 = {
     theme = "tokyodark",
     theme_toggle = { "tokyodark", "tokyodark", "tokyonight", "tokyodark" },
@@ -78,7 +78,7 @@ M.nvdash = {
         },
         { txt = "󰰰  Quit", keys = "qq", cmd = ":qa!", hl = "Cust",},
 
-        { txt = "[SPACE] +  C [1] |  C++ [2] |  Python [3] |  Rust [4]", hl = "NvDashHeader" },
+        { txt = "[SPACE] +  C [1] |  C++ [2] |  Python [3] |  Rust [4]", hl = "Function" },
 
         { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
         {

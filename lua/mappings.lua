@@ -58,8 +58,12 @@ map("n", "<Leader>Yr", function() require("direnv").check_direnv() end, { desc =
 map("n", "<Leader>Ye", function() require("direnv").edit_envrc() end, { desc = "Direnv: edit .envrc" })
 
 -- themes
--- Remap toggle term
+-- Remap toggle term 
 
 vim.keymap.set("n", "<leader>tt", function()
   require("base46").toggle_theme()
 end, { noremap = true, silent = true, desc = "Toggle NvChad theme via base46" })
+
+
+vim.keymap.set("n", "<F6>", ":set spell!<CR>", { noremap = true, silent = true, desc = "Toggle spell check" })
+vim.keymap.set("n", "<leader>cc", "set spell! <CR>", { noremap = true, silent = true, desc = "Toggle spell check" })
