@@ -80,6 +80,7 @@ return {
             },
             filters = {
                 dotfiles = false,
+                custom = { ".DS_Store" },
             },
         },
         lazy = false,
