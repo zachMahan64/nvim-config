@@ -1,7 +1,6 @@
 -- This file needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/ui/blob/v3.0/lua/nvconfig.lua
 -- Please read that file to know all available options :(
-
 ---@type ChadrcConfig
 local M = {}
 vim.api.nvim_set_hl(0, "Invisible", { fg = "NONE", bg = "NONE" }) -- for nvdash
@@ -61,22 +60,20 @@ M.nvdash = {
             cmd = ":lua require('persistence').load({ last = true })",
             hl = "Cust",
         },
-        { txt = "  Open CWD", keys = "fo", cmd = ":!open .", hl = "Cust",},
+        { txt = "  Open CWD", keys = "fo", cmd = ":!open .", hl = "Cust" },
         {
             txt = "󰒲  Sync Plugins & Servers",
             keys = "um",
             cmd = ":Lazy sync | MasonInstallAll",
             hl = "Cust",
-
         },
         {
             txt = "  Configure",
             keys = "cn",
             cmd = ":cd ~/.config/nvim/lua | NvimTreeOpen",
             hl = "Cust",
-
         },
-        { txt = "󰰰  Quit", keys = "qq", cmd = ":qa!", hl = "Cust",},
+        { txt = "󰰰  Quit", keys = "qq", cmd = ":qa!", hl = "Cust" },
 
         { txt = "[SPACE] +  C [1] |  C++ [2] |  Python [3] |  Rust [4]", hl = "Function" },
 

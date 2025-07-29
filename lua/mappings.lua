@@ -16,7 +16,7 @@ map("n", "<F11>", require("dap").step_into, { desc = "DAP: Step Into" })
 map("n", "<F12>", require("dap").step_out, { desc = "DAP: Step Out" })
 map("n", "<leader>db", require("dap").toggle_breakpoint, { desc = "DAP: Toggle Breakpoint" })
 map("n", "<leader>dB", function()
-  require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ")
+    require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ")
 end, { desc = "DAP: Conditional Breakpoint" })
 map("n", "<leader>du", require("dapui").toggle, { desc = "DAP UI Toggle" })
 map("n", "<leader>dc", require("dap").clear_breakpoints, { desc = "DAP: Clear Breakpoints" })
@@ -36,14 +36,22 @@ map("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "LSP: Signature Help" })
 map("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostics under cursor" })
 
 -- persistence mappings
-map("n", "<leader>qs", function() require("persistence").load() end, { desc = "load the session for the current directory"})
-map("n", "<leader>qS", function() require("persistence").select() end, { desc = "select a session to load"})
-map("n", "<leader>ql", function() require("persistence").load({ last = true }) end, { desc = "load the last session"})
-map("n", "<leader>qd", function() require("persistence").stop() end, { desc = "stop Persistence => session won't be saved on exit"})
+map("n", "<leader>qs", function()
+    require("persistence").load()
+end, { desc = "load the session for the current directory" })
+map("n", "<leader>qS", function()
+    require("persistence").select()
+end, { desc = "select a session to load" })
+map("n", "<leader>ql", function()
+    require("persistence").load { last = true }
+end, { desc = "load the last session" })
+map("n", "<leader>qd", function()
+    require("persistence").stop()
+end, { desc = "stop Persistence => session won't be saved on exit" })
 
 -- misc
 map("n", "<leader>zn", ":Nvdash<CR>", { desc = "Toggle Nvdash" })
-map("n", "<leader>zq", ":Telescope find_files cwd=~/.config/nvim/lua<CR>", {desc = "  Quick Fix"})
+map("n", "<leader>zq", ":Telescope find_files cwd=~/.config/nvim/lua<CR>", { desc = "  Quick Fix" })
 
 --true shortcuts
 map("n", "<leader>1", ":cd ~/dev/c | NvimTreeOpen<CR>", { desc = " C projects" })
@@ -52,18 +60,44 @@ map("n", "<leader>3", ":cd ~/dev/py/ | NvimTreeOpen<CR>", { desc = " Python p
 map("n", "<leader>4", ":cd ~/dev/rust | NvimTreeOpen<CR>", { desc = " Rust projects" })
 
 -- direnv keymaps for normal mode
-map("n", "<Leader>Ya", function() require("direnv").allow_direnv() end, { desc = "Direnv: allow .envrc" })
-map("n", "<Leader>Yd", function() require("direnv").deny_direnv() end, { desc = "Direnv: deny .envrc" })
-map("n", "<Leader>Yr", function() require("direnv").check_direnv() end, { desc = "Direnv: reload/check .envrc" })
-map("n", "<Leader>Ye", function() require("direnv").edit_envrc() end, { desc = "Direnv: edit .envrc" })
+map("n", "<Leader>Ya", function()
+    require("direnv").allow_direnv()
+end, { desc = "Direnv: allow .envrc" })
+map("n", "<Leader>Yd", function()
+    require("direnv").deny_direnv()
+end, { desc = "Direnv: deny .envrc" })
+map("n", "<Leader>Yr", function()
+    require("direnv").check_direnv()
+end, { desc = "Direnv: reload/check .envrc" })
+map("n", "<Leader>Ye", function()
+    require("direnv").edit_envrc()
+end, { desc = "Direnv: edit .envrc" })
 
 -- themes
--- Remap toggle term 
+-- Remap toggle term
 
 vim.keymap.set("n", "<leader>tt", function()
-  require("base46").toggle_theme()
+    require("base46").toggle_theme()
 end, { noremap = true, silent = true, desc = "Toggle NvChad theme via base46" })
-
 
 vim.keymap.set("n", "<F6>", ":set spell!<CR>", { noremap = true, silent = true, desc = "Toggle spell check" })
 vim.keymap.set("n", "<leader>cc", ":set spell! <CR>", { noremap = true, silent = true, desc = "Toggle spell check" })
+
+-- nvzone/menu
+-- Keyboard users
+vim.keymap.set("n", "<C-t>", function()
+    require("menu").open "default"
+end, {})
+
+-- mouse users + nvimtree users!
+vim.keymap.set({ "n", "v" }, "<RightMouse>", function()
+    require("menu.utils").delete_old_menus()
+
+    vim.cmd.exec '"normal! \\<RightMouse>"'
+
+    -- clicked buf
+    local buf = vim.api.nvim_win_get_buf(vim.fn.getmousepos().winid)
+    local options = vim.bo[buf].ft == "NvimTree" and "nvimtree" or "default"
+
+    require("menu").open(options, { mouse = true })
+end, {})
