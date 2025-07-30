@@ -50,10 +50,10 @@ map("n", "<leader>qd", function()
 end, { desc = "stop Persistence => session won't be saved on exit" })
 
 -- misc
-map("n", "<leader>zn", ":Nvdash<CR>", { desc = "Toggle Nvdash" })
 map("n", "<leader>zq", ":Telescope find_files cwd=~/.config/nvim/lua<CR>", { desc = "  Quick Fix" })
-
---true shortcuts
+map("n", "<leader>zn", ":Nvdash<CR>", { desc = "Toggle Nvdash" })
+--true shortcuts/nvdash stuff
+map("n", "<leader>0", ":bufdo bd | Nvdash<CR>", { desc = "󰑮 Nvdash" })
 map("n", "<leader>1", ":cd ~/dev/c | NvimTreeOpen<CR>", { desc = " C projects" })
 map("n", "<leader>2", ":cd ~/dev/cpp | NvimTreeOpen<CR>", { desc = " C++ projects" })
 map("n", "<leader>3", ":cd ~/dev/py/ | NvimTreeOpen<CR>", { desc = " Python projects" })
@@ -101,3 +101,19 @@ vim.keymap.set({ "n", "v" }, "<RightMouse>", function()
 
     require("menu").open(options, { mouse = true })
 end, {})
+
+-- Markdown
+
+vim.api.nvim_set_keymap(
+    "n",
+    "<leader>mp", -- toggle markdown preview
+    ":MarkdownPreviewToggle<CR>",
+    { noremap = true, silent = true, desc = "Toggle .md preview" }
+)
+
+vim.api.nvim_set_keymap(
+    "n",
+    "<leader>ms", -- stop markdown preview
+    ":MarkdownPreviewStop<CR>",
+    { noremap = true, silent = true, desc = "Disable .md preview"}
+)

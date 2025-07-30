@@ -251,6 +251,34 @@ local plugs = {
         -- }
         -- ```
     },
+    -- Live preview
+    {
+        "iamcco/markdown-preview.nvim",
+        ft = { "markdown" },
+        config = function()
+            vim.g.mkdp_auto_start = 0
+            vim.g.mkdp_browser = "chrome" -- change to preferred browser
+        end,
+    },
+
+    -- Syntax highlighting, TOC, etc.
+    {
+        "preservim/vim-markdown",
+        ft = { "markdown" },
+        dependencies = { "godlygeek/tabular" },
+        config = function()
+            vim.g.vim_markdown_folding_disabled = 1
+            vim.g.vim_markdown_conceal = 0
+        end,
+    },
+
+    -- Markdown snippets
+    {
+        "rafamadriz/friendly-snippets",
+        config = function()
+            require("luasnip.loaders.from_vscode").lazy_load { paths = { "./snippets" } }
+        end,
+    },
 }
 
 return plugs
