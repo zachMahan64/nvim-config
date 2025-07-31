@@ -6,8 +6,8 @@ local M = {}
 vim.api.nvim_set_hl(0, "Invisible", { fg = "NONE", bg = "NONE" }) -- for nvdash
 vim.api.nvim_set_hl(0, "Cust", { fg = "#fcdc9f", bg = "NONE", bold = false })
 M.base46 = {
-    theme = "everblush",
-    theme_toggle = { "everblush", "everblush", "everblush", "everblush" },
+    theme = "material-deep-ocean",
+    theme_toggle = { "material-deep-ocean", "rosepine", "catppuccin" },
 }
 M.ui = {
     cmp = {

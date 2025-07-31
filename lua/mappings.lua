@@ -120,14 +120,14 @@ end, {})
 
 -- Markdown
 
-vim.api.nvim_set_keymap(
+map(
     "n",
     "<leader>mp", -- toggle markdown preview
     ":MarkdownPreviewToggle<CR>",
     { noremap = true, silent = true, desc = "Toggle .md preview" }
 )
 
-vim.api.nvim_set_keymap(
+map(
     "n",
     "<leader>ms", -- stop markdown preview
     ":MarkdownPreviewStop<CR>",
