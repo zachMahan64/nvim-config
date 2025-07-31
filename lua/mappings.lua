@@ -53,7 +53,23 @@ end, { desc = "stop Persistence => session won't be saved on exit" })
 map("n", "<leader>zq", ":Telescope find_files cwd=~/.config/nvim/lua<CR>", { desc = "  Quick Fix" })
 map("n", "<leader>zn", ":Nvdash<CR>", { desc = "Toggle Nvdash" })
 --true shortcuts/nvdash stuff
-map("n", "<leader>0", ":bufdo bd | Nvdash<CR>", { desc = "󰑮 Nvdash" })
+
+
+map("n", "<leader>0", function()
+  local bufdelete = require("bufdelete").bufdelete
+
+  -- Delete all listed buffers
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].buflisted then
+      bufdelete(buf, false)
+    end
+  end
+
+  -- Open NvChad dashboard
+  vim.cmd("Nvdash")
+end, { desc = "󰑮 Nvdash" })
+
+
 map("n", "<leader>1", ":cd ~/dev/c | NvimTreeOpen<CR>", { desc = " C projects" })
 map("n", "<leader>2", ":cd ~/dev/cpp | NvimTreeOpen<CR>", { desc = " C++ projects" })
 map("n", "<leader>3", ":cd ~/dev/py/ | NvimTreeOpen<CR>", { desc = " Python projects" })
@@ -115,5 +131,5 @@ vim.api.nvim_set_keymap(
     "n",
     "<leader>ms", -- stop markdown preview
     ":MarkdownPreviewStop<CR>",
-    { noremap = true, silent = true, desc = "Disable .md preview"}
+    { noremap = true, silent = true, desc = "Disable .md preview" }
 )
