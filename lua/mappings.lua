@@ -54,21 +54,19 @@ map("n", "<leader>zq", ":Telescope find_files cwd=~/.config/nvim/lua<CR>", { des
 map("n", "<leader>zn", ":Nvdash<CR>", { desc = "Toggle Nvdash" })
 --true shortcuts/nvdash stuff
 
-
 map("n", "<leader>0", function()
-  local bufdelete = require("bufdelete").bufdelete
+    local bufdelete = require("bufdelete").bufdelete
 
-  -- Delete all listed buffers
-  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-    if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].buflisted then
-      bufdelete(buf, false)
+    -- Delete all listed buffers
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].buflisted then
+            bufdelete(buf, false)
+        end
     end
-  end
 
-  -- Open NvChad dashboard
-  vim.cmd("Nvdash")
+    -- Open NvChad dashboard
+    vim.cmd "Nvdash"
 end, { desc = "󰑮 Nvdash" })
-
 
 map("n", "<leader>1", ":cd ~/dev/c | NvimTreeOpen<CR>", { desc = " C projects" })
 map("n", "<leader>2", ":cd ~/dev/cpp | NvimTreeOpen<CR>", { desc = " C++ projects" })
@@ -92,21 +90,21 @@ end, { desc = "Direnv: edit .envrc" })
 -- themes
 -- Remap toggle term
 
-vim.keymap.set("n", "<leader>tt", function()
+map("n", "<leader>tt", function()
     require("base46").toggle_theme()
 end, { noremap = true, silent = true, desc = "Toggle NvChad theme via base46" })
 
-vim.keymap.set("n", "<F6>", ":set spell!<CR>", { noremap = true, silent = true, desc = "Toggle spell check" })
-vim.keymap.set("n", "<leader>cc", ":set spell! <CR>", { noremap = true, silent = true, desc = "Toggle spell check" })
+map("n", "<F6>", ":set spell!<CR>", { noremap = true, silent = true, desc = "Toggle spell check" })
+map("n", "<leader>cc", ":set spell! <CR>", { noremap = true, silent = true, desc = "Toggle spell check" })
 
 -- nvzone/menu
 -- Keyboard users
-vim.keymap.set("n", "<C-t>", function()
+map("n", "<C-t>", function()
     require("menu").open "default"
 end, {})
 
 -- mouse users + nvimtree users!
-vim.keymap.set({ "n", "v" }, "<RightMouse>", function()
+map({ "n", "v" }, "<RightMouse>", function()
     require("menu.utils").delete_old_menus()
 
     vim.cmd.exec '"normal! \\<RightMouse>"'
@@ -123,13 +121,35 @@ end, {})
 map(
     "n",
     "<leader>mp", -- toggle markdown preview
-    ":MarkdownPreviewToggle<CR>",
+    ":Markview Toggle<CR>",
     { noremap = true, silent = true, desc = "Toggle .md preview" }
 )
 
 map(
     "n",
     "<leader>ms", -- stop markdown preview
-    ":MarkdownPreviewStop<CR>",
+    ":Markview Disable<CR>",
     { noremap = true, silent = true, desc = "Disable .md preview" }
 )
+
+-- git shortcuts
+map("n", "<leader>ga", ":! git add -A <CR>", { noremap = true, silent = true, desc = " add -A" })
+
+vim.keymap.set("n", "<leader>gc <CR>", function()
+    vim.ui.input({ prompt = "Commit message: " }, function(msg)
+        if msg and #msg > 0 then
+            vim.fn.jobstart({ "git", "commit", "-m", msg }, {
+                stdout_buffered = true,
+                on_stdout = function(_, data)
+                    if data then
+                        print(table.concat(data, "\n"))
+                    end
+                end,
+            })
+        else
+            print "Commit canceled: no message given"
+        end
+    end)
+end, { desc = " commit -m" })
+map("n", "<leader>gp <CR>", ":! git push", { noremap = true, silent = true, desc = " push" })
+map("n", "<leader>gy", ":! git push <CR>", { noremap = true, silent = true, desc = " pull" })

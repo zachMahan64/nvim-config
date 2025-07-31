@@ -255,14 +255,18 @@ local plugs = {
     },
     -- Live preview
     {
-        "iamcco/markdown-preview.nvim",
-        ft = { "markdown" },
-        config = function()
-            vim.g.mkdp_auto_start = 0
-            vim.g.mkdp_browser = "chrome" -- change to preferred browser
-        end,
-    },
+        "OXY2DEV/markview.nvim",
+        lazy = false,
 
+        -- For `nvim-treesitter` users.
+        priority = 49,
+
+        -- For blink.cmp's completion
+        -- source
+        -- dependencies = {
+        --     "saghen/blink.cmp"
+        -- },
+    },
     -- Syntax highlighting, TOC, etc.
     {
         "preservim/vim-markdown",
