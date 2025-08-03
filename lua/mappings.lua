@@ -204,7 +204,7 @@ vim.keymap.set(
     { desc = "Obsidian: List Links", noremap = true, silent = true }
 )
 
-vim.keymap.set("n", "<leader>c", function()
+vim.keymap.set("n", "<leader>cc", function()
     local level = vim.wo.conceallevel
     local next_level = (level + 1) % 3 -- cycles 0→1→2→0
     vim.wo.conceallevel = next_level
