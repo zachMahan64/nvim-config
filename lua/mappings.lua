@@ -135,7 +135,7 @@ map(
 -- git shortcuts
 map("n", "<leader>ga", ":! git add -A <CR>", { noremap = true, silent = true, desc = " add -A" })
 
-vim.keymap.set("n", "<leader>gc <CR>", function()
+vim.keymap.set("n", "<leader>gc", function()
     vim.ui.input({ prompt = "Commit message: " }, function(msg)
         if msg and #msg > 0 then
             vim.fn.jobstart({ "git", "commit", "-m", msg }, {
@@ -151,5 +151,62 @@ vim.keymap.set("n", "<leader>gc <CR>", function()
         end
     end)
 end, { desc = " commit -m" })
-map("n", "<leader>gp <CR>", ":! git push", { noremap = true, silent = true, desc = " push" })
-map("n", "<leader>gy", ":! git push <CR>", { noremap = true, silent = true, desc = " pull" })
+map("n", "<leader>gp", ":! git push <CR>", { noremap = true, silent = true, desc = " push" })
+map("n", "<leader>gy", ":! git pull <CR>", { noremap = true, silent = true, desc = " pull" })
+
+-- obsidian
+vim.keymap.set(
+    "n",
+    "<leader>on",
+    ":ObsidianNew<space>",
+    { desc = "Obsidian: New Note", noremap = true, silent = false }
+)
+vim.keymap.set(
+    "n",
+    "<leader>oq",
+    ":ObsidianQuickSwitch<CR>",
+    { desc = "Obsidian: Quick Switch", noremap = true, silent = true }
+)
+vim.keymap.set(
+    "n",
+    "<leader>of",
+    ":ObsidianFollowLink<CR>",
+    { desc = "Obsidian: Follow Link", noremap = true, silent = true }
+)
+vim.keymap.set(
+    "n",
+    "<leader>ob",
+    ":ObsidianBacklinks<CR>",
+    { desc = "Obsidian: Backlinks", noremap = true, silent = true }
+)
+vim.keymap.set(
+    "n",
+    "<leader>ot",
+    ":ObsidianToday<CR>",
+    { desc = "Obsidian: Today’s Note", noremap = true, silent = true }
+)
+vim.keymap.set(
+    "n",
+    "<leader>oy",
+    ":ObsidianYesterday<CR>",
+    { desc = "Obsidian: Yesterday’s Note", noremap = true, silent = true }
+)
+vim.keymap.set(
+    "n",
+    "<leader>om",
+    ":ObsidianTomorrow<CR>",
+    { desc = "Obsidian: Tomorrow’s Note", noremap = true, silent = true }
+)
+vim.keymap.set(
+    "n",
+    "<leader>ol",
+    ":ObsidianLinks<CR>",
+    { desc = "Obsidian: List Links", noremap = true, silent = true }
+)
+
+vim.keymap.set("n", "<leader>c", function()
+    local level = vim.wo.conceallevel
+    local next_level = (level + 1) % 3 -- cycles 0→1→2→0
+    vim.wo.conceallevel = next_level
+    print("Conceallevel -> " .. next_level)
+end, { desc = "Cycle conceallevel 0/1/2" })

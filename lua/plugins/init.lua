@@ -235,7 +235,7 @@ local plugs = {
     {
         "hrsh7th/nvim-cmp",
         lazy = true,
-        enabled = false,
+        enabled = false, -- !!!!!!!!!!!!!!!!!
         version = false, -- last release is way too old
         event = "InsertEnter",
         dependencies = {
@@ -287,6 +287,30 @@ local plugs = {
     },
     {
         "famiu/bufdelete.nvim",
+    },
+
+    {
+        "epwalsh/obsidian.nvim",
+        version = "*", -- latest stable
+        lazy = false,
+        ft = "markdown",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        opts = {
+            workspaces = {
+                {
+                    name = "personal",
+                    path = "~/notes/personal",
+                },
+            },
+            daily_notes = {
+                folder = "daily",
+            },
+            -- completion = {
+            --   nvim_cmp = true, -- if using nvim-cmp
+            -- },
+        },
     },
 }
 
