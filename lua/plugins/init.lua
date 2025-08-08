@@ -199,8 +199,8 @@ local plugs = {
             null_ls.setup {
                 sources = {
                     -- formatting
-                    null_ls.builtins.formatting.cmake_format, -- <- cmakelang formatter
-                    require("null-ls").builtins.diagnostics.cmake_lint,
+                    --null_ls.builtins.formatting.cmake_format, -- <- cmakelang formatter
+                    --require("null-ls").builtins.diagnostics.cmake_lint,
                     null_ls.builtins.formatting.stylua,
                     null_ls.builtins.formatting.clang_format,
                     --null_ls.builtins.diagnostics.shellcheck,
@@ -293,6 +293,7 @@ local plugs = {
         "epwalsh/obsidian.nvim",
         version = "*", -- latest stable
         lazy = false,
+        enabled = false,
         ft = "markdown",
         dependencies = {
             "nvim-lua/plenary.nvim",
