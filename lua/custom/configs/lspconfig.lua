@@ -10,11 +10,11 @@ local servers = {
     --"pyright", --manual set-up
     "bashls",
     "cmakelang",
-    "clangd",
+    --"clangd", --manual set-up
     "rust_analyzer",
     "neocmake",
     "black",
-    "arduino_language_server"
+    "arduino_language_server",
     --"asm_lsp", --good, but doesn't work w/ b16 so disable it for now
 }
 vim.lsp.enable(servers)
@@ -29,13 +29,27 @@ lspconfig.pyright.setup {
         },
     },
 }
-  vim.lsp.config('*', {
+vim.lsp.config("*", {
     capabilities = {
-      textDocument = {
-        semanticTokens = {
-          multilineTokenSupport = true,
-        }
-      }
+        textDocument = {
+            semanticTokens = {
+                multilineTokenSupport = true,
+            },
+        },
     },
-    root_markers = { '.git' },
-  })
+    root_markers = { ".git" },
+})
+
+lspconfig.clangd.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = {
+        "clangd",
+        "--clang-tidy", -- enable clang-tidy
+        "--clang-tidy-checks=*,-llvm-*", -- example: all checks except LLVM
+        --"--header-insertion=never", -- optional: avoid auto-inserting headers
+        "--completion-style=detailed", -- nicer completion
+        "--background-index", -- enable background indexing
+        "--offset-encoding=utf-16", -- fix offset errors in some setups
+    },
+}

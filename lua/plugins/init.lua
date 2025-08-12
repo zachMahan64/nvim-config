@@ -193,6 +193,7 @@ local plugs = {
     {
         "nvimtools/none-ls.nvim", -- the maintained fork of null-ls
         event = "VeryLazy",
+        enabled = false,
         config = function()
             local null_ls = require "null-ls"
 
