@@ -15,6 +15,7 @@ local servers = {
     "neocmake",
     "black",
     "arduino_language_server",
+    "marksman",
     --"asm_lsp", --good, but doesn't work w/ b16 so disable it for now
 }
 vim.lsp.enable(servers)
