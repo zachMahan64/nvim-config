@@ -54,3 +54,9 @@ lspconfig.clangd.setup {
         "--offset-encoding=utf-16", -- fix offset errors in some setups
     },
 }
+-- not working as of 20250824
+lspconfig.racket_langserver.setup {
+    cmd = { "racket", "-l", "racket-langserver" },
+    filetypes = { "racket" },
+    root_dir = lspconfig.util.root_pattern("*.rkt", ".git"),
+}
