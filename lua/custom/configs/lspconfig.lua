@@ -17,6 +17,7 @@ local servers = {
     "arduino_language_server",
     "marksman",
     --"asm_lsp", --good, but doesn't work w/ b16 so disable it for now
+    "glsl_analyzer",
 }
 vim.lsp.enable(servers)
 -- override Pyright setup after the bulk enable to add custom config
