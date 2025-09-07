@@ -90,13 +90,18 @@ end, { desc = "Direnv: edit .envrc" })
 -- themes
 -- Remap toggle term
 
-map("n", "<leader>tt", function()
+map("n", "<leader>te", function()
     require("base46").toggle_theme()
 end, { noremap = true, silent = true, desc = "Toggle NvChad theme via base46" })
 
 map("n", "<F6>", ":set spell!<CR>", { noremap = true, silent = true, desc = "Toggle spell check" })
 map("n", "<leader>cc", ":set spell! <CR>", { noremap = true, silent = true, desc = "Toggle spell check" })
-
+map(
+    "n",
+    "<leader>tt",
+    ":lua require('base46').toggle_transparency()<CR>",
+    { noremap = true, silent = true, desc = "Toggle Background Transparency" }
+)
 -- nvzone/menu
 -- Keyboard users
 map("n", "<C-t>", function()
