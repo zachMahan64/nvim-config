@@ -257,10 +257,15 @@ local plugs = {
     -- Live preview
     {
         "OXY2DEV/markview.nvim",
-        lazy = false,
+        lazy = false, --needs to be false
 
         -- For `nvim-treesitter` users.
         priority = 49,
+        opts = {
+            experimental = {
+                check_rtp_message = false, -- hides the RTP warning
+            },
+        },
 
         -- For blink.cmp's completion
         -- source
