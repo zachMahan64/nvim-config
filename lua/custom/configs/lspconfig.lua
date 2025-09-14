@@ -49,7 +49,7 @@ lspconfig.clangd.setup {
     cmd = {
         "clangd",
         "--clang-tidy", -- enable clang-tidy
-        "--clang-tidy-checks=*,-llvm-*", -- example: all checks except LLVM
+        --"--clang-tidy-checks=*,-llvm-*", -- example: all checks except LLVM
         --"--header-insertion=never", -- optional: avoid auto-inserting headers
         "--completion-style=detailed", -- nicer completion
         "--background-index", -- enable background indexing
