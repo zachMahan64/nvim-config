@@ -6,7 +6,7 @@ return {
     formatters_by_ft = {
         lua = { "stylua" },
         cpp = { "clang_format" },
-        python = { "black" },
+        --python = { "black" }, -- disable since not working
         -- add more per language
     },
 }
