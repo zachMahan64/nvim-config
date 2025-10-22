@@ -12,7 +12,7 @@ local servers = {
     "cmakelang",
     "rust_analyzer",
     "neocmake",
-    "black",
+    --"black",
     "arduino_language_server",
     "marksman",
     "glsl_analyzer",
