@@ -217,7 +217,11 @@ local plugs = {
                     null_ls.builtins.formatting.clang_format,
                     --null_ls.builtins.diagnostics.shellcheck,
                     --null_ls.builtins.formatting.rustfmt,
-                    --null_ls.builtins.formatting.black, --for python
+                    null_ls.builtins.formatting.black.with {
+                        command = vim.fn.exepath "black", -- ensures correct binary
+                        args = { "--quiet", "-" }, -- force stdin/stdout mode
+                        timeout = 2000, -- avoid false timeouts
+                    },
                 },
                 on_attach = require("custom.configs.base").on_attach,
             }
