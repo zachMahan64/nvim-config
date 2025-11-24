@@ -64,7 +64,6 @@ local plugs = {
                 "marksman",
                 "asm_lsp",
                 "glsl_analyzer",
-                "java_language_server",
             },
         },
     },

@@ -16,10 +16,8 @@ local servers = {
     "arduino_language_server",
     "marksman",
     "glsl_analyzer",
-    "java_language_server",
     "clangd",
     "pyright",
-    "java_language_server",
 }
 
 -- bulk enable
@@ -71,14 +69,6 @@ lspconfig("clangd", {
 -- ---------------------------
 local home = os.getenv "HOME"
 local util = require "lspconfig.util" -- still valid for root_pattern()
-
-lspconfig("java_language_server", {
-    cmd = { home .. "/.local/share/nvim/mason/bin/java-language-server" },
-    root_dir = util.root_pattern("pom.xml", "build.gradle", ".git"),
-    handlers = {
-        ["client/registerCapability"] = function() end, -- ignore dynamic registration warnings
-    },
-})
 
 -- ---------------------------
 -- RACKET LANGSERVER
