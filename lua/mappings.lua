@@ -159,59 +159,13 @@ end, { desc = " commit -m" })
 map("n", "<leader>gp", ":! git push <CR>", { noremap = true, silent = true, desc = " push" })
 map("n", "<leader>gy", ":! git pull <CR>", { noremap = true, silent = true, desc = " pull" })
 
--- obsidian
-vim.keymap.set(
-    "n",
-    "<leader>on",
-    ":ObsidianNew<space>",
-    { desc = "Obsidian: New Note", noremap = true, silent = false }
-)
-vim.keymap.set(
-    "n",
-    "<leader>oq",
-    ":ObsidianQuickSwitch<CR>",
-    { desc = "Obsidian: Quick Switch", noremap = true, silent = true }
-)
-vim.keymap.set(
-    "n",
-    "<leader>of",
-    ":ObsidianFollowLink<CR>",
-    { desc = "Obsidian: Follow Link", noremap = true, silent = true }
-)
-vim.keymap.set(
-    "n",
-    "<leader>ob",
-    ":ObsidianBacklinks<CR>",
-    { desc = "Obsidian: Backlinks", noremap = true, silent = true }
-)
-vim.keymap.set(
-    "n",
-    "<leader>ot",
-    ":ObsidianToday<CR>",
-    { desc = "Obsidian: Today’s Note", noremap = true, silent = true }
-)
-vim.keymap.set(
-    "n",
-    "<leader>oy",
-    ":ObsidianYesterday<CR>",
-    { desc = "Obsidian: Yesterday’s Note", noremap = true, silent = true }
-)
-vim.keymap.set(
-    "n",
-    "<leader>om",
-    ":ObsidianTomorrow<CR>",
-    { desc = "Obsidian: Tomorrow’s Note", noremap = true, silent = true }
-)
-vim.keymap.set(
-    "n",
-    "<leader>ol",
-    ":ObsidianLinks<CR>",
-    { desc = "Obsidian: List Links", noremap = true, silent = true }
-)
-
 vim.keymap.set("n", "<leader>cc", function()
     local level = vim.wo.conceallevel
     local next_level = (level + 1) % 3 -- cycles 0→1→2→0
     vim.wo.conceallevel = next_level
     print("Conceallevel -> " .. next_level)
 end, { desc = "Cycle conceallevel 0/1/2" })
+
+-- spellcheck (built-in)
+map("n", "<leader>ss", ":set spell <CR>", { noremap = true, silent = true, desc = "󰓆 set spell" })
+map("n", "<leader>sn", ":set nospell <CR>", { noremap = true, silent = true, desc = " set nospell" })
