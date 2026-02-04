@@ -48,7 +48,7 @@ M.nvdash = {
         if rows < 30 then
             return require "custom.nvdash.small"
         elseif cols < 100 or rows < 50 then
-            return require "custom.nvdash.large"
+            return require "custom.nvdash.medium"
         else
             return require "custom.nvdash.large"
         end
@@ -74,15 +74,19 @@ M.nvdash = {
             hl = "Cust",
         },
         { txt = "󰰰  Quit", keys = "qq", cmd = ":qa!", hl = "Cust" },
-
-        { txt = "[SPACE] +  C [1] |  C++ [2] |  Python [3] |  Rust [4]", hl = "Function" },
-
         { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
         {
             txt = function()
                 local stats = require("lazy").stats()
                 local ms = math.floor(stats.startuptime) .. " ms"
-                return "  Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms
+                return "|     | "
+                    .. "  Loaded "
+                    .. stats.loaded
+                    .. "/"
+                    .. stats.count
+                    .. " plugins in "
+                    .. ms
+                    .. " |"
             end,
             hl = "NvDashFooter",
             no_gap = true,

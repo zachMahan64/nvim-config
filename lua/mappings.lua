@@ -68,11 +68,6 @@ map("n", "<leader>0", function()
     vim.cmd "Nvdash"
 end, { desc = "󰑮 Nvdash" })
 
-map("n", "<leader>1", ":cd ~/dev/c | NvimTreeOpen<CR>", { desc = " C projects" })
-map("n", "<leader>2", ":cd ~/dev/cpp | NvimTreeOpen<CR>", { desc = " C++ projects" })
-map("n", "<leader>3", ":cd ~/dev/py/ | NvimTreeOpen<CR>", { desc = " Python projects" })
-map("n", "<leader>4", ":cd ~/dev/rust | NvimTreeOpen<CR>", { desc = " Rust projects" })
-
 -- direnv keymaps for normal mode
 map("n", "<Leader>Ya", function()
     require("direnv").allow_direnv()
