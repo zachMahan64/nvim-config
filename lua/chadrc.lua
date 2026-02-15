@@ -7,7 +7,7 @@ vim.api.nvim_set_hl(0, "Invisible", { fg = "NONE", bg = "NONE" }) -- for nvdash
 vim.api.nvim_set_hl(0, "Cust", { fg = "#fcdc9f", bg = "NONE", bold = false })
 M.base46 = {
     theme = "material-deep-ocean",
-    theme_toggle = { "material-deep-ocean", "rosepine", "material-deep-ocean" },
+    theme_toggle = { "material-deep-ocean", "material-deep-ocean", "material-deep-ocean" },
 }
 M.ui = {
     cmp = {
