@@ -164,3 +164,6 @@ end, { desc = "Cycle conceallevel 0/1/2" })
 -- spellcheck (built-in)
 map("n", "<leader>ss", ":set spell <CR>", { noremap = true, silent = true, desc = "󰓆 set spell" })
 map("n", "<leader>sn", ":set nospell <CR>", { noremap = true, silent = true, desc = " set nospell" })
+
+-- CodeDiff
+map("n", "<leader>cd", ":CodeDiff <CR>", { noremap = true, silent = true, desc = "󰊢 CodeDiff" })
