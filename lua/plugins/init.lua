@@ -362,6 +362,17 @@ local plugs = {
             words = { enabled = true },
         },
     },
+    {
+        "nickkadutskyi/jb.nvim",
+        enabled = false, -- currently broken, so disable
+        lazy = false,
+        priority = 1000,
+        opts = {},
+        config = function()
+            -- require("jb").setup({transparent = true})
+            vim.cmd "colorscheme jb"
+        end,
+    },
 }
 
 return plugs
