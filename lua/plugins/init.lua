@@ -357,7 +357,7 @@ local plugs = {
             notifier = { enabled = true },
             quickfile = { enabled = true },
             scope = { enabled = true },
-            scroll = { enabled = true },
+            -- scroll = { enabled = true }, -- too slow/smooth for its own good
             statuscolumn = { enabled = true },
             words = { enabled = true },
         },
