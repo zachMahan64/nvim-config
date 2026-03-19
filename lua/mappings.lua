@@ -167,3 +167,11 @@ map("n", "<leader>sn", ":set nospell <CR>", { noremap = true, silent = true, des
 
 -- CodeDiff
 map("n", "<leader>cd", ":CodeDiff <CR>", { noremap = true, silent = true, desc = "󰊢 CodeDiff" })
+
+-- image.nvim
+map("n", "<leader>me", function()
+    require("image").enable()
+end, { desc = "󰄬  enable image.nvim rendering" })
+map("n", "<leader>md", function()
+    require("image").disable()
+end, { desc = "  disable image.nvim rendering" })
