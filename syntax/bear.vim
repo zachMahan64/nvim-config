@@ -5,11 +5,6 @@ endif
 syntax case match
 
 " ------------------------
-" comments (ONLY //)
-" ------------------------
-syntax match bearComment /\/\/.*/
-
-" ------------------------
 " identifiers
 " ------------------------
 syntax match bearIdentifier /\<[A-Za-z_][A-Za-z0-9_]*\>/
@@ -95,10 +90,18 @@ syntax match bearFunction /\<mt\s\+\(mut\s\+\)\?\zs[A-Za-z_][A-Za-z0-9_]*/
 syntax match bearTypeDef /\<\(struct\|variant\|union\|contract\)\s\+\zs[A-Za-z_][A-Za-z0-9_]*/
 
 " ------------------------
+" todo & fixme 
+" ------------------------
+syntax keyword bearTodo contained TODO FIXME XXX NOTE
+
+" ------------------------
+" comments (ONLY //)
+" ------------------------
+syntax match bearComment /\/\/.*/ contains=bearTodo,@Spell
+
+" ------------------------
 " highlight links
 " ------------------------
-
-highlight default link bearComment Comment
 
 highlight default link bearKeyword Keyword
 highlight default link bearType Type
@@ -116,5 +119,8 @@ highlight default link bearChar Character
 
 highlight default link bearOperator Operator
 highlight default link bearDelimiter Delimiter
+
+highlight default link bearTodo Todo
+highlight default link bearComment Comment
 
 let b:current_syntax = "bear"
