@@ -21,7 +21,7 @@ syntax keyword bearInclude
       \ import
 
 syntax keyword bearStorageClass
-      \ mut var static extern compt hid pub
+      \ static extern compt hid pub mut
 
 syntax keyword bearStructure
       \ variant struct union deftype
@@ -44,6 +44,7 @@ syntax keyword bearKeyword
       \ has is move as
       \ self Self
 
+syntax keyword bearSpecial var 
 
 " ------------------------
 " types (primitive)
@@ -82,13 +83,16 @@ syntax match bearOperator /\v>>>=/
 syntax match bearOperator /\v<<=|>>=|>>>|\.\.\.=/
 
 " 2-char
-syntax match bearOperator /->\|=>\|<-\|<<-\|::\|\.\.\|<<\|>>\|>=\|<=\|==\|!=\|+=\|-=\|*=\|\/=\|%=\|&=\|\^=\|||\|&&/
+syntax match bearOperator /->\|<<-\|::\|\.\.\|<<\|>>\|>=\|<=\|==\|!=\|+=\|-=\|*=\|\/=\|%=\|&=\|\^=\|||\|&&/
 
 " 1-char
 syntax match bearOperator /\v[+\-*/%=&|!<>^~]/
 
 " inc / dec / ellipsis
 syntax match bearOperator /\v\+\+|--|\.\.\./
+
+" highlight <- and => operators since they're more syntactically significant
+syntax match bearSpecial /=>\|<-/
 
 " ------------------------
 " delims / punc
@@ -133,6 +137,7 @@ highlight default link bearStatement   Statement
 highlight default link bearConditional Conditional
 highlight default link bearRepeat      Repeat
 highlight default link bearMacro       Macro
+highlight default link bearSpecial     Special
 highlight default link bearKeyword     Keyword
 highlight default link bearType        Type
 highlight default link bearTypeDef     Type
