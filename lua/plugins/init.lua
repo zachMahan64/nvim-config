@@ -386,6 +386,7 @@ local plugs = {
     },
     {
         "HiPhish/rainbow-delimiters.nvim",
+        enabled = false,
     },
 }
 
