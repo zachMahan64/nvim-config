@@ -380,6 +380,10 @@ local plugs = {
             processor = "magick_cli",
         },
     },
+    {
+        "bear-language/bear.nvim",
+        ft = { "bear" },
+    },
 }
 
 return plugs
