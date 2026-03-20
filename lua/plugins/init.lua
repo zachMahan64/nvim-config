@@ -384,6 +384,9 @@ local plugs = {
         "bear-language/bear.nvim",
         ft = { "bear" },
     },
+    {
+        "HiPhish/rainbow-delimiters.nvim",
+    },
 }
 
 return plugs
