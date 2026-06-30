@@ -18,6 +18,7 @@ local servers = {
     "glsl_analyzer",
     "clangd",
     "pyright",
+    "zls",
 }
 
 -- bulk enable
