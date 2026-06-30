@@ -31,6 +31,7 @@ local plugs = {
                 "c",
                 "rust",
                 "python",
+                "zig",
             },
             highlight = {
                 enable = true,
@@ -64,6 +65,7 @@ local plugs = {
                 "marksman",
                 "asm_lsp",
                 "glsl_analyzer",
+                "zls",
             },
         },
     },
