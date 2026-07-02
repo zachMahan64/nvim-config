@@ -6,8 +6,8 @@ local M = {}
 vim.api.nvim_set_hl(0, "Invisible", { fg = "NONE", bg = "NONE" }) -- for nvdash
 vim.api.nvim_set_hl(0, "Cust", { fg = "#fcdc9f", bg = "NONE", bold = false })
 M.base46 = {
-    theme = "rosepine",
-    theme_toggle = { "rosepine", "rosepine", "rosepine" },
+    theme = "rosepine-moon",
+    theme_toggle = { "rosepine-moon", "rosepine-moon", "rosepine-moon" },
 }
 M.ui = {
     cmp = {
@@ -97,6 +97,9 @@ M.nvdash = {
 }
 M.lsp = {
     override = require "custom.configs.lspconfig", -- may break
+}
+M.base46 = {
+    theme = "rosepine-moon", -- Must exactly match your filename 'mytheme.lua'
 }
 M.colorify = {
     enabled = true,
