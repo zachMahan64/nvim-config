@@ -19,7 +19,7 @@ local servers = {
     "clangd",
     "pyright",
     "zls",
-    "ocaml_lsp",
+    "ocamllsp",
 }
 
 -- bulk enable
@@ -37,9 +37,6 @@ lspconfig("*", {
     root_markers = { ".git" },
 })
 
--- ---------------------------
--- PYRIGHT (custom setup)
--- ---------------------------
 lspconfig("pyright", {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -51,9 +48,6 @@ lspconfig("pyright", {
     },
 })
 
--- ---------------------------
--- CLANGD (custom setup)
--- ---------------------------
 lspconfig("clangd", {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -66,15 +60,9 @@ lspconfig("clangd", {
     },
 })
 
--- ---------------------------
--- JAVA LANGUAGE SERVER
--- ---------------------------
 local home = os.getenv "HOME"
 local util = require "lspconfig.util" -- still valid for root_pattern()
 
--- ---------------------------
--- RACKET LANGSERVER
--- ---------------------------
 lspconfig("racket_langserver", {
     cmd = { "racket", "-l", "racket-langserver" },
     filetypes = { "racket" },
