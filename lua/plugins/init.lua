@@ -32,6 +32,7 @@ local plugs = {
                 "rust",
                 "python",
                 "zig",
+                "ocaml",
             },
             highlight = {
                 enable = true,
@@ -66,6 +67,7 @@ local plugs = {
                 "asm_lsp",
                 "glsl_analyzer",
                 "zls",
+                "ocaml-lsp",
             },
         },
     },
