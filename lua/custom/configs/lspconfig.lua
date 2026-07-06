@@ -19,6 +19,7 @@ local servers = {
     "clangd",
     "pyright",
     "zls",
+    "ocaml_lsp",
 }
 
 -- bulk enable
