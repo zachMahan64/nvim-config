@@ -70,6 +70,7 @@ local plugs = {
                 "zls",
                 "ocamllsp",
                 "ocamlformat",
+                "vtsls",
             },
         },
     },
