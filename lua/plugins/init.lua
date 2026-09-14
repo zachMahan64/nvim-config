@@ -34,6 +34,7 @@ local plugs = {
                 "python",
                 "zig",
                 "ocaml",
+                "typescript",
             },
             highlight = {
                 enable = true,

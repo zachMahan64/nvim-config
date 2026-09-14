@@ -20,6 +20,7 @@ local servers = {
     "pyright",
     "zls",
     "ocamllsp",
+    "vtsls",
 }
 
 -- bulk enable
