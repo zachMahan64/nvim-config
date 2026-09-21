@@ -72,6 +72,7 @@ local plugs = {
                 "ocamllsp",
                 "ocamlformat",
                 "vtsls",
+                "gopls",
             },
         },
     },
