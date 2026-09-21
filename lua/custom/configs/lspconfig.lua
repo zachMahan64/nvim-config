@@ -21,6 +21,7 @@ local servers = {
     "zls",
     "ocamllsp",
     "vtsls",
+    "gopls",
 }
 
 -- bulk enable
