@@ -70,3 +70,17 @@ lspconfig("racket_langserver", {
     filetypes = { "racket" },
     root_dir = util.root_pattern("*.rkt", ".git"),
 })
+
+lspconfig("bearls", {
+    cmd = { "bearls" }, -- or { vim.fn.expand("~/dev/bearls/build/bearls") } to skip installing
+    filetypes = { "bear" },
+    root_markers = { ".git" },
+    on_attach = on_attach,
+    capabilities = capabilities,
+    init_options = {
+        importPaths = {}, -- e.g. { "lib", "/abs/path/to/bear/std" }
+        extraArgs = {},
+        debounceMs = 30,
+    },
+})
+vim.lsp.enable "bearls"
