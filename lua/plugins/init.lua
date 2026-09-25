@@ -402,7 +402,13 @@ local plugs = {
         event = "VeryLazy",
         priority = 1000,
         config = function()
-            require("tiny-inline-diagnostic").setup()
+            require("tiny-inline-diagnostic").setup {
+                -- Only show diagnostics when the cursor is directly over them, no fallback to line diagnostics
+                show_diags_only_under_cursor = false,
+                -- Choose a preset style for diagnostic appearance
+                -- Available: "modern", "classic", "minimal", "powerline", "ghost", "simple", "nonerdfont", "amongus"
+                preset = "powerline",
+            }
             vim.diagnostic.config { virtual_text = false } -- Disable Neovim's default virtual text diagnostics
         end,
     },
