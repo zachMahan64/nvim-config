@@ -401,6 +401,7 @@ local plugs = {
         "rachartier/tiny-inline-diagnostic.nvim",
         event = "VeryLazy",
         priority = 1000,
+        enabled = false,
         config = function()
             require("tiny-inline-diagnostic").setup {
                 -- Only show diagnostics when the cursor is directly over them, no fallback to line diagnostics
@@ -409,7 +410,7 @@ local plugs = {
                 -- Available: "modern", "classic", "minimal", "powerline", "ghost", "simple", "nonerdfont", "amongus"
                 preset = "powerline",
             }
-            vim.diagnostic.config { virtual_text = true } -- Disable Neovim's default virtual text diagnostics
+            vim.diagnostic.config { virtual_text = false } -- Disable Neovim's default virtual text diagnostics
         end,
     },
 }
