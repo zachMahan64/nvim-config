@@ -22,6 +22,7 @@ local servers = {
     "ocamllsp",
     "vtsls",
     "gopls",
+    "texlab",
 }
 
 -- bulk enable
