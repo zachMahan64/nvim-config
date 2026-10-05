@@ -35,6 +35,7 @@ local plugs = {
                 "zig",
                 "ocaml",
                 "typescript",
+                "latex",
             },
             highlight = {
                 enable = true,
@@ -73,6 +74,7 @@ local plugs = {
                 "ocamlformat",
                 "vtsls",
                 "gopls",
+                "texlab",
             },
         },
     },
