@@ -23,7 +23,7 @@ map("n", "<leader>dc", require("dap").clear_breakpoints, { desc = "DAP: Clear Br
 
 -- Formatting
 map("n", "<leader>fx", vim.lsp.buf.format, { desc = "file-spec format" })
-map("n", "<leader>fv", ":Telescope diagnostics bufnr=0", { desc = "  Current Buffer Diagnostic List" })
+map("n", "<leader>fv", ":Telescope diagnostics bufnr=0<CR>", { desc = "current buff diags" })
 
 -- LSP mappings
 map("n", "<leader>rr", vim.lsp.buf.rename, { desc = "LSP: Rename (prefer <leader>ra)" })
