@@ -23,6 +23,7 @@ map("n", "<leader>dc", require("dap").clear_breakpoints, { desc = "DAP: Clear Br
 
 -- Formatting
 map("n", "<leader>fx", vim.lsp.buf.format, { desc = "file-spec format" })
+map("n", "<leader>fv", ":Telescope diagnostics bufnr=0", { desc = "  Current Buffer Diagnostic List" })
 
 -- LSP mappings
 map("n", "<leader>rr", vim.lsp.buf.rename, { desc = "LSP: Rename (prefer <leader>ra)" })
@@ -32,7 +33,6 @@ map("n", "gD", vim.lsp.buf.declaration, { desc = "LSP: Go to Declaration" })
 map("n", "gi", vim.lsp.buf.implementation, { desc = "LSP: Go to Implementation" })
 map("n", "K", vim.lsp.buf.hover, { desc = "LSP: Hover Doc" })
 map("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "LSP: Signature Help" })
-
 map("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostics under cursor" })
 
 -- persistence mappings
