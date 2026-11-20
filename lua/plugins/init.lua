@@ -415,6 +415,13 @@ local plugs = {
             vim.diagnostic.config { virtual_text = false } -- Disable Neovim's default virtual text diagnostics
         end,
     },
+    {
+        "ton/vim-bufsurf",
+        keys = {
+            { "[b", "<Plug>(buf-surf-back)", desc = "BufSurf Back" },
+            { "]b", "<Plug>(buf-surf-forward)", desc = "BufSurf Forward" },
+        },
+    },
 }
 
 return plugs
