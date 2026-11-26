@@ -1,4 +1,5 @@
 {
+  "AssemblyForNeovim": { "branch": "main", "commit": "404becb88d0ecdd40ed281684128c8cc8c436ec4" },
   "LuaSnip": { "branch": "master", "commit": "0abc8f390b278c3b4aabc4c004ac8a088b65cf24" },
   "NvChad": { "branch": "v2.5", "commit": "87d6a41ec07ab995de912a892749b6b4805ad2b3" },
   "base46": { "branch": "v3.0", "commit": "d870ec89a7b2f28c4accce515f97b7bcc5b9d200" },

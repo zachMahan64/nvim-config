@@ -422,6 +422,13 @@ local plugs = {
             { "]b", "<Plug>(buf-surf-forward)", desc = "BufSurf Forward" },
         },
     },
+    {
+        "0xdeadf1sh/AssemblyForNeovim",
+        config = function()
+            require("asm").setup { key = "<leader>mm" }
+        end,
+        lazy = false,
+    },
 }
 
 return plugs
